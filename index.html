@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Symbiosis Hospital & Research Center - Feedback Admin Panel</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <h1>SHRC Admin</h1>
+        <p>Feedback Control Center</p>
+        <nav>
+          <button class="nav-item active">Dashboard</button>
+          <button class="nav-item">All Feedback</button>
+          <button class="nav-item">Departments</button>
+          <button class="nav-item">Reports</button>
+        </nav>
+      </aside>
+
+      <main class="main-content">
+        <header class="page-header">
+          <div>
+            <h2>Symbiosis Hospital & Research Center</h2>
+            <p>Admin Panel for Patient Feedback Management</p>
+          </div>
+          <button id="export-btn" class="primary-btn">Export as CSV</button>
+        </header>
+
+        <section class="stats-grid" id="stats-grid" aria-live="polite"></section>
+
+        <section class="charts-grid" aria-label="Feedback analytics charts">
+          <article class="chart-card">
+            <h3>Status Distribution</h3>
+            <p>Number of feedback entries by workflow status.</p>
+            <div class="bar-chart" id="status-chart"></div>
+          </article>
+
+          <article class="chart-card">
+            <h3>Department Avg. Rating</h3>
+            <p>Average patient rating by department.</p>
+            <div class="bar-chart" id="department-chart"></div>
+          </article>
+        </section>
+
+        <section class="filters">
+          <label>
+            Department
+            <select id="department-filter">
+              <option value="all">All</option>
+              <option value="Emergency">Emergency</option>
+              <option value="Cardiology">Cardiology</option>
+              <option value="Neurology">Neurology</option>
+              <option value="Pediatrics">Pediatrics</option>
+            </select>
+          </label>
+
+          <label>
+            Status
+            <select id="status-filter">
+              <option value="all">All</option>
+              <option value="New">New</option>
+              <option value="In Review">In Review</option>
+              <option value="Resolved">Resolved</option>
+            </select>
+          </label>
+
+          <label>
+            Search
+            <input id="search-input" type="text" placeholder="Search patient, message..." />
+          </label>
+        </section>
+
+        <section class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Patient</th>
+                <th>Department</th>
+                <th>Rating</th>
+                <th>Message</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="feedback-body"></tbody>
+          </table>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
